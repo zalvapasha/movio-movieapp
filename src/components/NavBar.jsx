@@ -31,10 +31,12 @@ const NavBar = () => {
 
   const toggleUserDropdown = () => {
     setUserDropdownVisible(!userDropdownVisible)
+    setSettingsDropdownVisible(false)
   }
   
   const toggleSettingsDropdown = () => {
     setSettingsDropdownVisible(!settingsDropdownVisible)
+    setUserDropdownVisible(false)
   }
 
     return (

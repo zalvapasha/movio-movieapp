@@ -7,10 +7,6 @@ import GamesListPage from '../pages/GamesListPage';
 import MoviesSettingsPage from '../pages/MoviesSettingsPage';
 import MovieFormPage from '../pages/MovieFormPage'
 
-
-
-
-
 const AppRouter = () => {
     return(
         <BrowserRouter>
