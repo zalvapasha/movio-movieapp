@@ -29,6 +29,10 @@ const TableMovies = () => {
         navigate(`/mastermovies/edit/${id}`)
     }
 
+    const handleDetail = (id) => {
+        navigate(`/moviesdetail/${id}`)
+    }
+
     const TableBody = () => {
         return movies.map((movie)=>{
             return(
@@ -44,6 +48,12 @@ const TableMovies = () => {
                 <td className="whitespace-nowrap px-4 py-2 text-gray-700">{movie.duration}</td>
                 <td className="whitespace-nowrap px-4 py-2 text-gray-700">{movie.rating}</td>
                 <td className="whitespace-nowrap px-4 py-2">
+                    <button
+                    className="inline-block rounded bg-cyan-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
+                    onClick={()=>handleDetail(movie.id)}
+                    >
+                    Detail
+                    </button>
                     <button
                     className="inline-block rounded bg-yellow-400 px-4 py-2 text-xs font-medium text-black hover:bg-indigo-700"
                     onClick={()=>handleEdit(movie.id)}

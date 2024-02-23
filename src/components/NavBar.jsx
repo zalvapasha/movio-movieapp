@@ -25,6 +25,10 @@ const NavBar = () => {
     navigate('/mastermovies');
   }
 
+  const handleMasterGamesClick = () => {
+    navigate('/mastergames')
+  }
+
   const handleCloseModal = () => setShowModal(false);
   
   const handleShowModal = () => setShowModal(true);
@@ -59,12 +63,12 @@ const NavBar = () => {
                 >Settings</button>
                 {settingsDropdownVisible && (
                 <div
-                  class="absolute end-0 z-10 mt-2 w-auto rounded-md border border-gray-100 bg-white shadow-lg"
+                  className="absolute end-0 z-10 mt-2 w-auto rounded-md border border-gray-100 bg-white shadow-lg"
                   role="menu"
                 >
-                  <div class="p-2">
+                  <div className="p-2">
                     <button
-                      class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                      className="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                       role="menuitem"
                       onClick={handleMasterMoviesClick}
                     >
@@ -72,8 +76,9 @@ const NavBar = () => {
                     </button>
 
                     <button
-                      class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                      className="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                       role="menuitem"
+                      onClick={handleMasterGamesClick}
                     >
                       Games Settings
                     </button>

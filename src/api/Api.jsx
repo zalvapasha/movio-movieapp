@@ -27,6 +27,7 @@ export const registerUser= async (input) => {
     }
 } 
 
+// Movie
 export const getMovies = async () => {
     const movie = await axios.get(`${baseURL}/data-movie`)
     return movie.data
@@ -60,6 +61,7 @@ export const editMovie = async (id, input, token) => {
         description : input.description,
         image_url : input.image_url
     },{headers: {"Authorization" : "Bearer "+ token}} )
+    return movie
 }
 
 export const deleteMovie = async (id, token) => {
@@ -68,8 +70,46 @@ export const deleteMovie = async (id, token) => {
     return movie
 }
 
+// Game
 export const getGames = async () => {
     const game = await axios.get(`${baseURL}/data-game`)
     return game.data
+}
+
+export const getGameById = async (id) => {
+    const gamebyid = await axios.get(`${baseURL}/data-game/${id}`)
+    return gamebyid.data
+}
+
+export const addGame = async (input, token) => {
+    const game = await axios.post(`${baseURL}/data-game`, {
+        name : input.name,
+        genre : input.genre,
+        platform : input.platform,
+        release : input.release,
+        singlePlayer : input.singlePlayer,
+        multiplayer : input.multiplayer,
+        image_url : input.image_url
+    }, {headers: {"Authorization" : "Bearer "+ token}})
+    return game
+}
+
+export const editGame = async (id, input, token) => {
+    const game = await axios.put(`${baseURL}/data-game/${id}`, {
+        name : input.name,
+        genre : input.genre,
+        platform : input.platform,
+        release : input.release,
+        singlePlayer : input.singlePlayer,
+        multiplayer : input.multiplayer,
+        image_url : input.image_url
+    },{headers: {"Authorization" : "Bearer "+ token}} )
+    return game
+}
+
+export const deleteGame = async (id, token) => {
+    const game = await axios.delete(`${baseURL}/data-game/${id}` 
+    ,{headers: {"Authorization" : "Bearer "+ token}})
+    return game
 }
 

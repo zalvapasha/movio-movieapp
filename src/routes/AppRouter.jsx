@@ -6,6 +6,10 @@ import MoviesListPage from '../pages/MoviesListPage';
 import GamesListPage from '../pages/GamesListPage';
 import MoviesSettingsPage from '../pages/MoviesSettingsPage';
 import MovieFormPage from '../pages/MovieFormPage'
+import MovieDetailPage from '../pages/MovieDetailPage'
+import GamesSettingsPage from '../pages/GamesSettingsPage';
+import GameFormPage from '../pages/GameFormPage';
+import GameDetailPage from '../pages/GameDetailPage';
 
 const AppRouter = () => {
     return(
@@ -19,6 +23,8 @@ const AppRouter = () => {
                     </MainLayout>
                     }
                 />
+
+                {/* Movie */}
                 <Route
                     path='/movieslist'
                     element={
@@ -28,13 +34,14 @@ const AppRouter = () => {
                     }
                 />
                 <Route
-                    path='/gameslist'
+                    path='/moviesdetail/:id'
                     element={
                     <MainLayout>
-                        <GamesListPage/>
+                        <MovieDetailPage/>
                     </MainLayout>
-                    }                
+                    }
                 />
+
                 <Route
                     path='/mastermovies'
                     element={
@@ -56,6 +63,40 @@ const AppRouter = () => {
                     element={
                     <MainLayout>
                         <MovieFormPage/>
+                    </MainLayout>
+                    }
+                />
+
+                {/* Game */}
+                <Route
+                    path='/gameslist'
+                    element={
+                    <MainLayout>
+                        <GamesListPage/>
+                    </MainLayout>
+                    }                
+                />
+                <Route
+                    path='/gamedetail/:id'
+                    element={
+                    <MainLayout>
+                        <GameDetailPage/>
+                    </MainLayout>
+                    }
+                />
+                <Route
+                    path='/mastergames'
+                    element={
+                    <MainLayout>
+                        <GamesSettingsPage/>
+                    </MainLayout>
+                    }
+                />
+                <Route
+                    path='/mastergames/add'
+                    element={
+                    <MainLayout>
+                        <GameFormPage/>
                     </MainLayout>
                     }
                 />
