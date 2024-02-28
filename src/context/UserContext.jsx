@@ -16,15 +16,8 @@ export const UserProvider = props => {
     setUser(null);
   };
 
-  const updateContext = updatedUserData => {
-    const updatedUser = { ...user, ...updatedUserData };
-    localStorage.setItem("user", JSON.stringify(updatedUser));
-    setUser(updatedUser);
-  };
-
-
   return (
-    <UserContext.Provider value={{user, setUser, loginContext, logoutContext, updateContext}}>
+    <UserContext.Provider value={{user, setUser, loginContext, logoutContext}}>
       {props.children}
     </UserContext.Provider>
   );

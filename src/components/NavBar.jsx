@@ -1,13 +1,15 @@
-import React , { useContext, useEffect, useRef, useState } from "react";
+import React , { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LoginModal from "./LoginModal";
 import { UserContext } from "../context/UserContext";
+import ChangePassModal from "./ChangePassModal";
 
 
 const NavBar = () => {
   const { user, logoutContext } = useContext(UserContext)
   const navigate = useNavigate();
-  const [showModal, setShowModal] = useState(false)
+  const [showModalLoginRegister, setShowModalLoginRegister] = useState(false)
+  const [showModalChangePass, setShowModalChangePass] = useState(false)
   const [userDropdownVisible, setUserDropdownVisible] = useState(false)
   const [settingsDropdownVisible, setSettingsDropdownVisible] = useState(false)
 
@@ -29,9 +31,14 @@ const NavBar = () => {
     navigate('/mastergames')
   }
 
-  const handleCloseModal = () => setShowModal(false);
+  const handleCloseModalLoginRegister = () => setShowModalLoginRegister(false);
   
-  const handleShowModal = () => setShowModal(true);
+  const handleShowModalLoginRegister = () => setShowModalLoginRegister(true);
+
+  const handleCloseModalChangePass = () => setShowModalChangePass(false);
+
+  const handleShowModalChangePass = () => setShowModalChangePass(true);
+  
 
   const toggleUserDropdown = () => {
     setUserDropdownVisible(!userDropdownVisible)
@@ -119,11 +126,11 @@ const NavBar = () => {
                 >
                   <div className="p-2">
                     <a
-                      href="#"
                       className="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                       role="menuitem"
+                      onClick={handleShowModalChangePass}
                     >
-                      Edit
+                      Change Password
                     </a>
               
             
@@ -159,7 +166,7 @@ const NavBar = () => {
               <div className="relative">
                 <button
                   className="p-4 border-b-2 border-zinc-900 border-opacity-0 hover:border-opacity-100 hover:text-zinc-900 duration-200 cursor-pointer active"
-                  onClick={handleShowModal}
+                  onClick={handleShowModalLoginRegister}
                 >
                   Login
                 </button>
@@ -167,7 +174,8 @@ const NavBar = () => {
             )}
           </div>
 
-          {showModal && <LoginModal  onClose={handleCloseModal} />}
+          {showModalChangePass && <ChangePassModal onClose={handleCloseModalChangePass}/>}
+          {showModalLoginRegister && <LoginModal  onClose={handleCloseModalLoginRegister} />}
 
         </nav>
       );

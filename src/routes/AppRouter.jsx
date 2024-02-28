@@ -100,6 +100,14 @@ const AppRouter = () => {
                     </MainLayout>
                     }
                 />
+                <Route
+                    path='/mastergames/edit/:id'
+                    element={
+                    <MainLayout>
+                        <GameFormPage/>
+                    </MainLayout>
+                    }
+                />
             </Routes>
         </BrowserRouter>
     );

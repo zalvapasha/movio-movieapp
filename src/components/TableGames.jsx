@@ -29,6 +29,10 @@ const TableGames = () => {
         navigate(`/gamedetail/${id}`)
     }
 
+    const handleEdit = (id) => {
+        navigate(`/mastergames/edit/${id}`)
+    }
+
     const TableBody = () => {
         return games.map((game)=>{
             return(
@@ -52,7 +56,7 @@ const TableGames = () => {
                     </button>
                     <button
                     className="inline-block rounded bg-yellow-400 px-4 py-2 text-xs font-medium text-black hover:bg-indigo-700"
-                    // onClick={()=>handleEdit(game.id)}
+                    onClick={()=>handleEdit(game.id)}
                     >
                     Edit
                     </button>

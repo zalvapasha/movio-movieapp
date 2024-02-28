@@ -25,7 +25,20 @@ export const registerUser= async (input) => {
     } catch(error){
         throw error
     }
-} 
+}
+
+export const changePassUser = async (input, token) => {
+    try{
+        const changePass = await axios.post(`${baseURL}/change-password`, {
+            current_password : input.current_password,
+            new_password : input.new_password,
+            new_confirm_password : input.new_confirm_password
+        },{headers: {"Authorization" : "Bearer "+ token}})
+        return changePass.data
+    }catch(error){
+        throw error
+    }
+}
 
 // Movie
 export const getMovies = async () => {

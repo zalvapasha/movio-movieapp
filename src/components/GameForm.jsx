@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/UserContext";
-import { addGame, getGameById } from "../api/Api";
+import { addGame, getGameById, editGame } from "../api/Api";
 
 const GameForm = ({id}) => {
     const {user} = useContext(UserContext)
@@ -44,7 +44,7 @@ const GameForm = ({id}) => {
 
         if (id) {
             // Editing mode
-            updateGame(id, gameData, user.token)
+            editGame(id, gameData, user.token)
                 .then(result => {
                     console.log(result);
                 })
